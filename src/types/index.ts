@@ -5,3 +5,7 @@ export type guitarras = {
     description: string
     price: number
   }
+
+  export type carritoItem = guitarras &{
+    cantidad:number
+  }

@@ -1,7 +1,7 @@
 import Header from "./components/Header"
 import Guitar from "./components/Guitar"
 import { useCarrito } from "./hooks/useCarrito";
-import { useState } from "react";
+//import { useState } from "react";
 
 function App() {
   const { data,
@@ -10,7 +10,8 @@ function App() {
     eliminarElemento,
     aumentarcantidad,
     reducirCantidad,
-    limpiarCarrito } = useCarrito();
+    limpiarCarrito,
+    carritoTotal } = useCarrito();
 
 
   return (
@@ -21,6 +22,7 @@ function App() {
         aumentarcantidad={aumentarcantidad}
         reducirCantidad={reducirCantidad}
         limpiarCarrito={limpiarCarrito}
+        carritoTotal={carritoTotal}
       />
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
