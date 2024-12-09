@@ -1,12 +1,24 @@
-import { useState, useEffect } from "react";
-export default function Header({ carrito, eliminarElemento, aumentarcantidad, reducirCantidad, limpiarCarrito }) {
-    //    const vacio = () => carrito.length === 0;
-    const [precioTotal, setPrecioTotal] = useState(0);
+import type { carritoItem } from '../types/index'
+//import { useState, useEffect } from "react";
+
+
+type HeaderProps = {
+    carrito: carritoItem[]
+    eliminarElemento: (id: number) => void
+    aumentarcantidad: (id: number) => void
+    reducirCantidad: (id: number) => void
+    limpiarCarrito: () => void
+    carritoTotal:number
+}
+
+export default function Header({ carrito, eliminarElemento, aumentarcantidad, reducirCantidad, limpiarCarrito, carritoTotal }: HeaderProps) {
+
+    /* const [precioTotal, setPrecioTotal] = useState(0);
     const carritoTotal = () => carrito.reduce((total, item) => total + (item.cantidad * item.price), 0);
 
     useEffect(() => {
         setPrecioTotal(carritoTotal());
-    }, [carrito]);
+    }, [carrito]); */
 
     return (
         <>
@@ -80,7 +92,7 @@ export default function Header({ carrito, eliminarElemento, aumentarcantidad, re
                                                     ))}
                                                 </tbody>
                                             </table>
-                                            <p className="text-end">Total pagar: <span className="fw-bold">{precioTotal}€</span></p>
+                                            <p className="text-end">Total pagar: <span className="fw-bold">${carritoTotal}€</span></p>
 
                                             <button
                                                 className="btn btn-dark w-100 mt-3 p-2"
